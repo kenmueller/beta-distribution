@@ -5,14 +5,14 @@ from matplotlib import pyplot as plt
 from sys import float_info
 
 st.title('Beta Distribution')
-st.markdown('**by Ken Mueller**')
+st.subheader('by Ken Mueller')
 
-input_data = st.radio(
-    'Input data', ('a and b', 'μ and κ', 'ω and κ', 'μ and σ'))
+parameters = st.radio(
+    'Parameters', ('a and b', 'μ and κ', 'ω and κ', 'μ and σ'))
 
 left, right = st.columns(2)
 
-if input_data == 'a and b':
+if parameters == 'a and b':
     with left:
         max_a = st.number_input('Maximum a value', 1, value=100)
         a = st.slider('a', 0, max_a)
@@ -20,7 +20,7 @@ if input_data == 'a and b':
     with right:
         max_b = st.number_input('Maximum b value', 1, value=100)
         b = st.slider('b', 0, max_b)
-elif input_data == 'μ and κ':
+elif parameters == 'μ and κ':
     with left:
         mean = st.slider('μ', 0.0, 1.0)
 
@@ -30,7 +30,7 @@ elif input_data == 'μ and κ':
 
     a = mean * concentration
     b = (1 - mean) * concentration
-elif input_data == 'ω and κ':
+elif parameters == 'ω and κ':
     with left:
         mode = st.slider('ω', 0.0, 1.0)
 
@@ -40,7 +40,7 @@ elif input_data == 'ω and κ':
 
     a = mode * (concentration - 2) + 1
     b = (1 - mode) * (concentration - 2) + 1
-elif input_data == 'μ and σ':
+elif parameters == 'μ and σ':
     with left:
         mean = st.slider('μ', 0.0, 1.0)
 
