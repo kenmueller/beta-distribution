@@ -5,6 +5,7 @@ from matplotlib import pyplot as plt
 from sys import float_info
 
 st.title('Beta Distribution')
+st.markdown('**by Ken Mueller**')
 
 input_data = st.radio(
     'Input data', ('a and b', 'μ and κ', 'ω and κ', 'μ and σ'))
